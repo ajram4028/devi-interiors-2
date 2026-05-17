@@ -289,15 +289,14 @@ function initCursorGlow() {
 }
 initCursorGlow();
 
-
+/* ── WhatsApp Form Sender ── */
 function sendToWhatsApp() {
-
-  const name = document.getElementById("name").value;
-  const phone = document.getElementById("phone").value;
-  const email = document.getElementById("email").value;
-  const service = document.getElementById("service").value;
-  const budget = document.getElementById("budget").value;
-  const details = document.getElementById("details").value;
+  const name    = document.getElementById('name')    ? document.getElementById('name').value    : '';
+  const phone   = document.getElementById('phone')   ? document.getElementById('phone').value   : '';
+  const email   = document.getElementById('email')   ? document.getElementById('email').value   : '';
+  const service = document.getElementById('service') ? document.getElementById('service').value : '';
+  const budget  = document.getElementById('budget')  ? document.getElementById('budget').value  : '';
+  const details = document.getElementById('details') ? document.getElementById('details').value : '';
 
   const message =
 `✨ New Interior Enquiry
@@ -312,10 +311,5 @@ function sendToWhatsApp() {
 📝 Project Details:
 ${details}`;
 
-  const whatsappURL =
-`https://wa.me/918608140709?text=${encodeURIComponent(message)}`;
-
-  window.open(whatsappURL, "_blank");
+  window.open(`https://wa.me/918608140709?text=${encodeURIComponent(message)}`, '_blank');
 }
-
-
