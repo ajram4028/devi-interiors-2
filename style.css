@@ -1667,3 +1667,25 @@ footer {
   }
 
 }
+
+@media (max-width: 768px) {
+
+  .service-card .service-img {
+    height: 320px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f6f2;
+    padding: 10px;
+    overflow: hidden;
+  }
+
+  .service-card .service-img img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    border-radius: 18px;
+  }
+
+}
