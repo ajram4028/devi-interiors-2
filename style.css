@@ -1639,8 +1639,8 @@ footer {
     border: 1px solid rgba(212,175,55,0.15);
   }
   .service-img {
-    width: 180px;
-    min-width: 180px;
+    width: 140px;
+    min-width: 140px;
     height: auto;
     flex-shrink: 0;
     border-radius: 0;
@@ -1653,7 +1653,6 @@ footer {
     object-fit: contain;
     object-position: center;
     background: var(--soft-white);
-    padding: 4px;
   }
   .service-body {
     padding: 14px 16px;
