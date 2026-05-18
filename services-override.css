@@ -183,7 +183,7 @@
 
   .service-card {
     aspect-ratio: unset !important;
-    height: 360px !important;
+    height: 460px !important;
     min-height: unset !important;
     flex-direction: column !important;
     border-radius: 18px;
@@ -255,7 +255,7 @@
    SMALL PHONES (≤420px) — services
 ════════════════════════════════════════════ */
 @media (max-width: 420px) {
-  .service-card { height: 320px !important; border-radius: 16px !important; }
+  .service-card { height: 420px !important; border-radius: 16px !important; }
   .service-body h3 { font-size: 0.95rem !important; }
   .service-body p  { font-size: 0.76rem !important; }
 }
