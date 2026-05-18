@@ -1,0 +1,261 @@
+/*
+ * ============================================================
+ * DEVI INTERIORS — SERVICES SECTION OVERRIDE
+ * Add this AFTER style.css in your <head>:
+ *   <link rel="stylesheet" href="services-override.css" />
+ * ============================================================
+ */
+
+/* ════════════════════════════════════════════
+   SERVICES SECTION
+════════════════════════════════════════════ */
+.services {
+  background: var(--black, #0B0B0B);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* ── Service Card — full-bleed overlay style ── */
+.service-card {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  cursor: pointer;
+  background: var(--dark, #1A1814);
+  border: 1px solid rgba(212,175,55,0.15);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 28px 60px rgba(0,0,0,0.55), var(--shadow-gold);
+  border-color: rgba(212,175,55,0.40);
+}
+
+.service-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.service-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.75s ease;
+}
+
+.service-card:hover .service-img img {
+  transform: scale(1.07);
+}
+
+.service-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.88) 0%,
+    rgba(0,0,0,0.45) 45%,
+    rgba(0,0,0,0.10) 100%
+  );
+  transition: background var(--transition);
+}
+
+.service-card:hover .service-img-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.94) 0%,
+    rgba(0,0,0,0.55) 50%,
+    rgba(0,0,0,0.20) 100%
+  );
+}
+
+.service-body {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 28px 26px 26px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.service-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(212,175,55,0.18);
+  border: 1.5px solid rgba(212,175,55,0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  margin-bottom: 14px;
+  transition: var(--transition);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.service-card:hover .service-icon {
+  background: var(--gold, #D4AF37);
+  border-color: var(--gold, #D4AF37);
+  transform: scale(1.08);
+}
+
+.service-body h3 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: var(--white, #F5F5F5);
+  margin-bottom: 8px;
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+}
+
+.service-body p {
+  font-size: 0.82rem;
+  font-weight: 300;
+  color: rgba(245,245,245,0.70);
+  line-height: 1.55;
+  margin-bottom: 12px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.45s ease, opacity 0.4s ease;
+  opacity: 0;
+}
+
+.service-card:hover .service-body p {
+  max-height: 80px;
+  opacity: 1;
+}
+
+.service-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--gold-light, #E8C95A);
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  transition: gap var(--transition), opacity 0.4s ease;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+}
+
+.service-card:hover .service-link {
+  opacity: 1;
+  max-height: 40px;
+  gap: 10px;
+}
+
+
+
+/* ════════════════════════════════════════════
+   TABLET (≤1024px) — services fix
+════════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .services-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .service-card  { aspect-ratio: 3 / 4; }
+}
+
+/* ════════════════════════════════════════════
+   MOBILE (≤768px) — services overlay card
+════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .services { padding: 60px 0; }
+  .services-grid { grid-template-columns: 1fr; gap: 16px; }
+
+  .service-card {
+    aspect-ratio: unset !important;
+    height: 280px !important;
+    min-height: unset !important;
+    flex-direction: column !important;
+    border-radius: 18px;
+  }
+
+  /* Image must fill card absolutely */
+  .service-img {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-width: unset !important;
+    flex-shrink: unset !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+  }
+
+  .service-img img {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    background: transparent !important;
+  }
+
+  /* Body absolutely positioned at bottom */
+  .service-body {
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    padding: 20px 18px !important;
+    flex: unset !important;
+    justify-content: flex-start !important;
+  }
+
+  .service-icon {
+    width: 38px !important;
+    height: 38px !important;
+    border-radius: 50% !important;
+    font-size: 1rem !important;
+    margin-bottom: 10px !important;
+  }
+
+  .service-body h3 {
+    font-size: 1rem !important;
+    color: var(--white, #F5F5F5) !important;
+    margin-bottom: 4px !important;
+  }
+
+  /* On mobile, always show description/link (no hover state) */
+  .service-body p {
+    max-height: none !important;
+    opacity: 1 !important;
+    font-size: 0.78rem !important;
+    color: rgba(245,245,245,0.70) !important;
+    display: block !important;
+  }
+
+  .service-link {
+    max-height: none !important;
+    opacity: 1 !important;
+    font-size: 0.72rem !important;
+  }
+}
+
+/* ════════════════════════════════════════════
+   SMALL PHONES (≤420px) — services
+════════════════════════════════════════════ */
+@media (max-width: 420px) {
+  .service-card { height: 240px !important; border-radius: 16px !important; }
+  .service-body h3 { font-size: 0.95rem !important; }
+  .service-body p  { font-size: 0.76rem !important; }
+}
